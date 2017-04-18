@@ -9,6 +9,7 @@ import com.example.ramzanullah.enable_retrofit_jason.R;
 import com.example.ramzanullah.enable_retrofit_jason.model.User;
 import com.example.ramzanullah.enable_retrofit_jason.viewholder.RecyclerViewHolder;
 
+import java.lang.ref.PhantomReference;
 import java.util.List;
 
 /**
@@ -38,6 +39,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
 
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
+
+        holder.id.setText(itemlist.get(position).getId());
+        holder.name.setText(itemlist.get(position).getName());
+        holder.mobile.setText(itemlist.get(position).getMobile());
 
 
     }
