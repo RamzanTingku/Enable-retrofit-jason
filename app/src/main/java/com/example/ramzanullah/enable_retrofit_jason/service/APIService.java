@@ -18,4 +18,3 @@ public interface APIService {
     Call<List<User>> getUserData();
 }
 
-}

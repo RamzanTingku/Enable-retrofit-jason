@@ -9,7 +9,6 @@ import com.example.ramzanullah.enable_retrofit_jason.R;
 import com.example.ramzanullah.enable_retrofit_jason.model.User;
 import com.example.ramzanullah.enable_retrofit_jason.viewholder.RecyclerViewHolder;
 
-import java.lang.ref.PhantomReference;
 import java.util.List;
 
 /**
@@ -18,42 +17,32 @@ import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
 
-    private List<User>itemlist;
+    private List<User> item;
 
-    public RecyclerViewAdapter(List<User> itemlist) {
-        this.itemlist = itemlist;
+
+    public RecyclerViewAdapter(List<User> list) {
+        this.item = list;
     }
-
-}
 
     @Override
     public RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View layoutView = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.recycler_row_xml, null);
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_row_xml,null);
-        RecyclerViewHolder recyclerViewHolder = new RecyclerViewHolder(view);
-
-
+        RecyclerViewHolder recyclerViewHolder = new RecyclerViewHolder(layoutView);
 
         return recyclerViewHolder;
     }
 
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
-        
-        holder.id.setText(itemlist.get(position).getId());
-        holder.name.setText(itemlist.get(position).getName());
-        holder.mobile.setText(itemlist.get(position).getMobile());
-
-
-        holder.id.setText(itemlist.get(position).getId());
-        holder.name.setText(itemlist.get(position).getName());
-        holder.mobile.setText(itemlist.get(position).getMobile());
-
-
+        holder.id.setText(item.get(position).getId());
+        holder.name.setText(item.get(position).getName());
+        holder.mobile.setText(item.get(position).getMobile());
     }
 
     @Override
     public int getItemCount() {
-        return this.itemlist.size();
+        return item.size();
     }
 }
